@@ -5,7 +5,8 @@ resource "google_cloud_run_service" "cloud-run-tf-t" {
   template {
     spec {
       containers {
-        image = "gcr.io/docker-demo-384011/dockerb:dockerbuild"
+        #image = "gcr.io/docker-demo-384011/dockerb:dockerbuild"
+        image = "gcr.io/docker-demo-384011/cloudbuild:7c29cdf5581eb45727a7a1eb9d0ad4f421775226"
         #image = "gcr.io/docker-demo-384011/hello-world-1:latest"
         #image ="gcr.io/docker-demo-384011/flask:latest"
       }
@@ -30,8 +31,4 @@ data "google_iam_policy" "pub-1" {
     members = ["allUsers"]
   }
 }
-
-options {
-    logging = "CLOUD_LOGGING_ONLY"
-  }
 
